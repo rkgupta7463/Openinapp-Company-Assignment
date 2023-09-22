@@ -141,5 +141,6 @@
 
   
 ## 6. Results
-  
-  Share the results of your model's translations. You can include sample input sentences and their corresponding Hinglish translations.
+  ![image](https://github.com/rkgupta7463/Openinapp-Company-Assignment/assets/96177171/54fb0689-1892-4926-ab10-f9b06659a730)
+  ![image](https://github.com/rkgupta7463/Openinapp-Company-Assignment/assets/96177171/c9710d9d-6b66-4b98-a939-e1408a2ddd44)
+
