@@ -74,8 +74,72 @@
     print("Keras version:", keras.__version__)
 
 
-4. Usage: Explain how to use your translation model. Provide code examples for translating English sentences to Hinglish.
+## 4. Usage
+  
+  Using the Hinglish Translation Model is straightforward. You can incorporate it into your Python script or application to translate English text into Hinglish. Below are the steps to utilize the model effectively:
+    
+  1. Import the Required Libraries
+  Ensure you have imported the necessary libraries, as mentioned in the "Setup" section of this README.
+  2. Define the Translation Logic
 
-5. Evaluation: Describe how to evaluate the model's performance, including criteria for accuracy, fluency, and understandability.
+  Write a function that takes an English text as input and returns the corresponding Hinglish translation. This function should tokenize the English text, identify words or phrases that require translation, and replace       them with Hinglish equivalents.
 
-6. Results: Share the results of your model's translations. You can include sample input sentences and their corresponding Hinglish translations.
+      def decode_sequence(input_seq):
+        # Encode the input as state vectors.
+        states_value = encoder_model.predict(input_seq)
+    
+        # Generate empty target sequence of length 1.
+        target_seq = np.zeros((1, 1, num_decoder_tokens))
+        # Populate the first character of target sequence with the start character.
+        target_seq[0, 0, target_token_index["\t"]] = 1.0
+    
+        # Sampling loop for a batch of sequences
+        # (to simplify, here we assume a batch of size 1).
+        stop_condition = False
+        decoded_sentence = ""
+        while not stop_condition:
+            output_tokens, h, c = decoder_model.predict([target_seq] + states_value)
+    
+            # Sample a token
+            sampled_token_index = np.argmax(output_tokens[0, -1, :])
+            sampled_char = reverse_target_char_index[sampled_token_index]
+            decoded_sentence += sampled_char
+    
+            # Exit condition: either hit max length
+            # or find stop character.
+            if sampled_char == "\n" or len(decoded_sentence) > max_decoder_seq_length:
+                stop_condition = True
+    
+            # Update the target sequence (of length 1).
+            target_seq = np.zeros((1, 1, num_decoder_tokens))
+            target_seq[0, 0, sampled_token_index] = 1.0
+    
+            # Update states
+            states_value = [h, c]
+        return decoded_sentence
+
+
+  You can now generate decoded sentences as such:
+
+    for seq_index in range(20):
+        # Take one sequence (part of the training set)
+        # for trying out decoding.
+        input_seq = encoder_input_data[seq_index : seq_index + 1]
+        decoded_sentence = decode_sequence(input_seq)
+        print("-")
+        print("Input sentence:", input_texts[seq_index])
+        print("Decoded sentence:", decoded_sentence)
+
+
+    
+## 5. Evaluation
+
+  Evaluating the performance of the Hinglish Translation Model is essential to ensure the accuracy, fluency, and understandability of the generated Hinglish text. This section provides guidelines on how to evaluate the       model effectively.
+
+  ![image](https://github.com/rkgupta7463/Openinapp-Company-Assignment/assets/96177171/7a33e035-5dd9-4d58-b210-5580b2b8750e)
+  ![image](https://github.com/rkgupta7463/Openinapp-Company-Assignment/assets/96177171/3c921e09-d611-4de5-8d0c-a6647f4f3e42)
+
+  
+## 6. Results
+  
+  Share the results of your model's translations. You can include sample input sentences and their corresponding Hinglish translations.
