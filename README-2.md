@@ -136,11 +136,13 @@
 
   Evaluating the performance of the Hinglish Translation Model is essential to ensure the accuracy, fluency, and understandability of the generated Hinglish text. This section provides guidelines on how to evaluate the       model effectively.
 
-  ![image](https://github.com/rkgupta7463/Openinapp-Company-Assignment/assets/96177171/7a33e035-5dd9-4d58-b210-5580b2b8750e)
-  ![image](https://github.com/rkgupta7463/Openinapp-Company-Assignment/assets/96177171/3c921e09-d611-4de5-8d0c-a6647f4f3e42)
+  ![image](https://github.com/rkgupta7463/Openinapp-Company-Assignment/assets/96177171/388bd2d9-1fef-4d59-8cf4-5faca80eb017)
+
+  !![Untitled](https://github.com/rkgupta7463/Openinapp-Company-Assignment/assets/96177171/6282eedd-56ed-4598-ba09-313c37496d6e)
+
 
   
 ## 6. Results
-  ![image](https://github.com/rkgupta7463/Openinapp-Company-Assignment/assets/96177171/54fb0689-1892-4926-ab10-f9b06659a730)
-  ![image](https://github.com/rkgupta7463/Openinapp-Company-Assignment/assets/96177171/c9710d9d-6b66-4b98-a939-e1408a2ddd44)
+  ![image](https://github.com/rkgupta7463/Openinapp-Company-Assignment/assets/96177171/7e51f2af-90da-4ed9-ae88-bff3d84360a4)
+
 
