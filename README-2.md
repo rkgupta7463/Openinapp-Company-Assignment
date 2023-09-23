@@ -1,4 +1,4 @@
-# Translation Assignment - English into Hinglish
+# Translation Assignment - English into Hinglish (Using Ancodr and Decoder)
 
 ## 1. Project Overview
 ##### Hinglish Translation Model
