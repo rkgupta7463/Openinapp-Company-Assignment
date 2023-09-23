@@ -17,130 +17,75 @@
 
 ## 2. Setup
 
-  To get started with the Hinglish Translation Model project, you'll need to set up a Python environment and install the necessary libraries. We'll cover the installation of libraries like numpy, pandas, matplotlib,           TensorFlow, and Keras, which are commonly used for data processing and machine learning tasks.
-  Prerequisites
+  In this section, we will guide you through the process of setting up the machine translation model for English to Hinglish translation using the Hugging Face Transformers library.
+  1. Prerequisites
   
-    Python 3.x installed on your system.
-    Pip, the Python package manager, should also be available.
+  Before you get started, ensure that you have the following prerequisites installed:
 
-### Installation Steps
+    Python 3.x
+    Hugging Face Transformers library
+    An internet connection (for downloading pre-trained models)
 
-    Python Environment: If you haven't already, install Python 3.x on your system. You can download it from the official Python website: python.org.
 
-    Virtual Environment (Optional but Recommended): It's a good practice to create a virtual environment for your project to manage dependencies cleanly.
+  2. Installation
+
+  First, clone the repository containing your project or create a new one:
+    
+  bash  
+    
+    # Clone your project repository
+    git clone https://github.com/rkgupta7463/Openinapp-Company-Assignment.git
         
-#### Install virtualenv using pip
-    pip install virtualenv
-    
-#### Create a new virtual environment
-    virtualenv hinglish_translation_env
-    
-#### Activate the virtual environment (on Windows)
-    hinglish_translation_env\Scripts\activate
-    
-#### Activate the virtual environment (on macOS and Linux)
-    source hinglish_translation_env/bin/activate
-#### Navigate to your project directory
-    cd your_project_directory
-    
-    # Create a requirements.txt file (if not already created)
-    touch requirements.txt
-    Add the following lines to your requirements.txt file:
-
-#### Add the following lines to your requirements.txt file:
+    # Navigate to the project directory
+    cd your-repo
   
-    numpy==1.21.2
-    pandas==1.3.3
-    matplotlib==3.4.3
-    tensorflow==2.6.0
-    keras==2.6.0
+  Install the required Python packages, including the Hugging Face Transformers library:
 
-#### Install the libraries by running:
-    pip install -r requirements.txt
+  bash
 
-#### Verifying the Setup
-  To verify that your setup is successful, you can create a Python script and import the required libraries and you can check the versions. For example:
+    # Install the Hugging Face Transformers library
+    pip install transformers
+
+## 3. Usage
+
+  Now that you have the project and dependencies set up, you can use the machine translation model to translate English text to Hindi.
+  Modify the input_statement variable in your Python script with the text you want to translate.
+
+  python
+
+    from transformers import MarianTokenizer, MarianMTModel
+
+    # Define the input statement in English
+    input_statement = "I had about a 30-minute demo just using this new headset"
     
-    import numpy as np
-    import pandas as pd
-    import matplotlib.pyplot as plt
-    import tensorflow as tf
-    from tensorflow import keras
+    # Define the model and tokenizer for English to Hindi translation
+    model_name = "Helsinki-NLP/opus-mt-en-hi"
+    tokenizer = MarianTokenizer.from_pretrained(model_name)
+    model = MarianMTModel.from_pretrained(model_name)
+    
+    # Translate the input statement to Hindi
+    translated_statement = model.generate(**tokenizer(input_statement, return_tensors="pt", padding=True))
+    translated_statement = tokenizer.decode(translated_statement[0], skip_special_tokens=True)
+    
+    # Print the translated statement
+    print(translated_statement)
 
-    print("NumPy version:", np.__version__)
-    print("Pandas version:", pd.__version__)
-    print("Matplotlib version:", plt.__version__)
-    print("TensorFlow version:", tf.__version__)
-    print("Keras version:", keras.__version__)
+  Now you can run your Python script to perform English to Hindi translation. Make sure to customize the input_statement variable with the text you want to translate.
 
+## 4. Additional Information
 
-## 4. Usage
+  If you encounter any issues during setup or usage, refer to the Hugging Face Transformers documentation for troubleshooting and further information: Hugging Face             Transformers Documentation.
+
+## 5. Results
+
+  In this section, we present the results of using the machine translation model for English to Hindi translation. Below, you can find translated examples and any additional   insights gained from the model's performance.
+  Translated Examples
   
-  Using the Hinglish Translation Model is straightforward. You can incorporate it into your Python script or application to translate English text into Hinglish. Below are the steps to utilize the model effectively:
-    
-  1. Import the Required Libraries
-  Ensure you have imported the necessary libraries, as mentioned in the "Setup" section of this README.
-  2. Define the Translation Logic
-
-  Write a function that takes an English text as input and returns the corresponding Hinglish translation. This function should tokenize the English text, identify words or phrases that require translation, and replace       them with Hinglish equivalents.
-
-      def decode_sequence(input_seq):
-        # Encode the input as state vectors.
-        states_value = encoder_model.predict(input_seq)
-    
-        # Generate empty target sequence of length 1.
-        target_seq = np.zeros((1, 1, num_decoder_tokens))
-        # Populate the first character of target sequence with the start character.
-        target_seq[0, 0, target_token_index["\t"]] = 1.0
-    
-        # Sampling loop for a batch of sequences
-        # (to simplify, here we assume a batch of size 1).
-        stop_condition = False
-        decoded_sentence = ""
-        while not stop_condition:
-            output_tokens, h, c = decoder_model.predict([target_seq] + states_value)
-    
-            # Sample a token
-            sampled_token_index = np.argmax(output_tokens[0, -1, :])
-            sampled_char = reverse_target_char_index[sampled_token_index]
-            decoded_sentence += sampled_char
-    
-            # Exit condition: either hit max length
-            # or find stop character.
-            if sampled_char == "\n" or len(decoded_sentence) > max_decoder_seq_length:
-                stop_condition = True
-    
-            # Update the target sequence (of length 1).
-            target_seq = np.zeros((1, 1, num_decoder_tokens))
-            target_seq[0, 0, sampled_token_index] = 1.0
-    
-            # Update states
-            states_value = [h, c]
-        return decoded_sentence
-
-
-  You can now generate decoded sentences as such:
-
-    for seq_index in range(20):
-        # Take one sequence (part of the training set)
-        # for trying out decoding.
-        input_seq = encoder_input_data[seq_index : seq_index + 1]
-        decoded_sentence = decode_sequence(input_seq)
-        print("-")
-        print("Input sentence:", input_texts[seq_index])
-        print("Decoded sentence:", decoded_sentence)
-
-
-    
-## 5. Evaluation
-
-  Evaluating the performance of the Hinglish Translation Model is essential to ensure the accuracy, fluency, and understandability of the generated Hinglish text. This section provides guidelines on how to evaluate the       model effectively.
-
-  ![image](https://github.com/rkgupta7463/Openinapp-Company-Assignment/assets/96177171/7a33e035-5dd9-4d58-b210-5580b2b8750e)
-  ![image](https://github.com/rkgupta7463/Openinapp-Company-Assignment/assets/96177171/3c921e09-d611-4de5-8d0c-a6647f4f3e42)
-
+  Here are some examples of English text translated to Hindi using the model:
   
-## 6. Results
-  ![image](https://github.com/rkgupta7463/Openinapp-Company-Assignment/assets/96177171/54fb0689-1892-4926-ab10-f9b06659a730)
-  ![image](https://github.com/rkgupta7463/Openinapp-Company-Assignment/assets/96177171/c9710d9d-6b66-4b98-a939-e1408a2ddd44)
-
+  input_statement 
+    
+    "I had about a 30 minute demo just using this new headset"  
+  Output 
+  
+    मैं 30 मिनट डेमो था सिर्फ इस नए सिरसेट का इस्तेमाल
