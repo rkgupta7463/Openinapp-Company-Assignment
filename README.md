@@ -81,9 +81,9 @@
   
   Here are some examples of English text translated to Hindi using the model:
   
-  input_statement 
+  #### input_statement 
     
     "I had about a 30 minute demo just using this new headset"  
-  Sample Output
+  #### Sample Output
   
     मैं 30 मिनट डेमो था सिर्फ इस नए सिरसेट का इस्तेमाल
