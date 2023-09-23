@@ -1,4 +1,4 @@
-# Translation Assignment - English into Hinglish
+# Translation Assignment - English into Hinglish (Using Hugging Face)
 
 ## 1. Project Overview
 ##### Hinglish Translation Model
