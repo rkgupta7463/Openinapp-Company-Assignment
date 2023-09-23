@@ -43,8 +43,10 @@
 
   bash
 
-    # Install the Hugging Face Transformers library
-    pip install transformers
+  # Install the Hugging Face Transformers library
+    pip install transformers torch
+    pip install sentencepiece
+    pip install sacremoses
 
 ## 3. Usage
 
