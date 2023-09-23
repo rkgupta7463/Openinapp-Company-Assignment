@@ -84,6 +84,6 @@
   input_statement 
     
     "I had about a 30 minute demo just using this new headset"  
-  Output 
+  Sample Output
   
     मैं 30 मिनट डेमो था सिर्फ इस नए सिरसेट का इस्तेमाल
