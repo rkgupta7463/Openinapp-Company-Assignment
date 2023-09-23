@@ -29,9 +29,7 @@
 
   2. Installation
 
-  First, clone the repository containing your project or create a new one:
-    
-  bash  
+  First, clone the repository containing your project or create a new one: 
     
     # Clone your project repository
     git clone https://github.com/rkgupta7463/Openinapp-Company-Assignment.git
@@ -40,9 +38,7 @@
     cd your-repo
   
   Install the required Python packages, including the Hugging Face Transformers library:
-
-  bash
-
+  
   # Install the Hugging Face Transformers library
     pip install transformers torch
     pip install sentencepiece
@@ -50,7 +46,7 @@
 
 ## 3. Usage
 
-  Now that you have the project and dependencies set up, you can use the machine translation model to translate English text to Hindi.
+  Now that you have the project and dependencies set up, you can use the machine translation model to translate English text to Hinglish.
   Modify the input_statement variable in your Python script with the text you want to translate.
 
   python
@@ -76,7 +72,7 @@
 
 ## 4. Additional Information
 
-  If you encounter any issues during setup or usage, refer to the Hugging Face Transformers documentation for troubleshooting and further information: Hugging Face             Transformers Documentation.
+  If you encounter any issues during setup or usage, refer to the Hugging Face Transformers documentation for troubleshooting and further information: Hugging Face Transformers Documentation.
 
 ## 5. Results
 
