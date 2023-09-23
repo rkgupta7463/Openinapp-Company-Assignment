@@ -18,7 +18,7 @@
 ## 2. Setup
 
   In this section, we will guide you through the process of setting up the machine translation model for English to Hinglish translation using the Hugging Face Transformers library.
-  1. Prerequisites
+  #### 1. Prerequisites
   
   Before you get started, ensure that you have the following prerequisites installed:
 
@@ -27,7 +27,7 @@
     An internet connection (for downloading pre-trained models)
 
 
-  2. Installation
+  #### 2. Installation
 
   First, clone the repository containing your project or create a new one: 
     
@@ -49,7 +49,7 @@
   Now that you have the project and dependencies set up, you can use the machine translation model to translate English text to Hinglish.
   Modify the input_statement variable in your Python script with the text you want to translate.
 
-  python
+  #### python
 
     from transformers import MarianTokenizer, MarianMTModel
 
